@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BRB Agency | Diwali Dhamaka 🪔💥 100x Reach</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23FF6200%22/><rect x=%226%22 y=%226%22 width=%2288%22 height=%2288%22 fill=%22none%22 stroke=%22%23111111%22 stroke-width=%228%22/><path d=%22M50 14 C42 24 45 34 50 38 C55 34 58 24 50 14 Z%22 fill=%22%23FFD700%22 stroke=%22%23111111%22 stroke-width=%223%22/><text x=%2250%22 y=%2284%22 font-family=%22Arial, sans-serif%22 font-weight=%22900%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%23FFFFFF%22>B</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brb: {
+                black: '#111111',
+                white: '#FFFFFF',
+                saffron: '#FF6200',
+                gold: '#FFD700',
+                maroon: '#E60039',
+                magenta: '#D80082',
+                purple: '#7928CA',
+                teal: '#00F0B5',
+                amber: '#FF9500',
+                cream: '#FFFDF8'
+              }
+            },
+            fontFamily: {
+              sans: ['Space Grotesk', 'sans-serif'],
+              display: ['Syne', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            boxShadow: {
+              'hard': '5px 5px 0px 0px #111111',
+              'hard-lg': '8px 8px 0px 0px #111111',
+              'hard-xl': '12px 12px 0px 0px #111111',
+              'hard-reverse': '-5px 5px 0px 0px #111111',
+              'hard-gold': '5px 5px 0px 0px #FFD700',
+              'hard-saffron': '6px 6px 0px 0px #FF6200',
+            },
+            animation: {
+              'marquee': 'marquee 12s linear infinite',
+              'float': 'float 3.2s ease-in-out infinite',
+              'blink': 'blink 1s steps(2, start) infinite',
+              'swing': 'swing 3s ease-in-out infinite alternate',
+              'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-100%)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-12px)' },
+              },
+              blink: {
+                '0%, 100%': { opacity: '1' },
+                '50%': { opacity: '0.4' },
+              },
+              swing: {
+                '0%': { transform: 'rotate(-5deg)' },
+                '100%': { transform: 'rotate(5deg)' },
+              },
+              'pulse-glow': {
+                '0%, 100%': { filter: 'drop-shadow(0 0 15px rgba(255, 215, 0, 0.7))' },
+                '50%': { filter: 'drop-shadow(0 0 25px rgba(255, 98, 0, 0.9))' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-brb-cream text-brb-black overflow-x-hidden selection:bg-brb-saffron selection:text-white relative">
+
+    <!-- ============================================ -->
+    <!-- DIWALI FESTIVE AUDIO (SITAR / INSTRUMENTAL)  -->
+    <!-- ============================================ -->
+    <audio id="diwali-music" loop preload="none">
+        <!-- Primary Source: Archive.org Classical Sitar Recording (Ravi Shankar Raga Desi) -->
+        <source src="https://archive.org/download/lp_a-sitar-recital_ravi-shankar/disc1%2F01.01.%20Raga%3A%20Desi.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Toggle Button -->
+    <button id="music-toggle" title="Play / Mute Diwali Beats" class="fixed bottom-8 left-4 md:left-8 z-[90] w-14 h-14 bg-brb-gold border-4 border-brb-black shadow-hard flex items-center justify-center hover:-translate-y-1 hover:shadow-hard-lg transition-all active:translate-y-0 active:shadow-hard group" aria-label="Toggle Diwali Music">
+        <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:scale-110 transition-transform">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+    </button>
+
+    <!-- Interactive Diwali Firework & Sparkler Canvas -->
+    <canvas id="diwali-canvas" class="fixed inset-0 pointer-events-none z-[80]"></canvas>
+
+    <!-- Diwali Deal Badge (Spinning Chakri & Diya Style) -->
+    <div class="fixed bottom-8 right-4 md:right-8 z-[90] animate-bounce">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScJNbyHaZf9DG59UalQzUbstmm0kXreKZwP9aab9AiKmuB1RA/viewform" target="_blank" class="block relative group cursor-pointer hover:rotate-6 transition-transform duration-300" aria-label="Diwali Offer Deal">
+            <!-- Chakri Sunburst Outer -->
+            <div class="w-32 h-32 md:w-40 md:h-40 bg-brb-gold border-4 border-brb-black rounded-full flex items-center justify-center shadow-hard-lg relative overflow-visible">
+                <!-- Outer Spinning Spikes -->
+                <div class="absolute inset-0 border-4 border-dashed border-brb-saffron rounded-full spin-slow pointer-events-none"></div>
+                <!-- Diya Flame on Top -->
+                <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-8 h-10 flame-animated z-20">
+                    <svg viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 0 C8 15 2 24 6 34 C10 40 20 40 24 34 C28 24 22 15 15 0 Z" fill="#FFD700" stroke="#111" stroke-width="2"/>
+                        <path d="M15 10 C11 18 8 24 10 30 C12 34 18 34 20 30 C22 24 19 18 15 10 Z" fill="#FF6200"/>
+                        <circle cx="15" cy="28" r="3" fill="#FFFFFF"/>
+                    </svg>
+                </div>
+                
+                <div class="text-center transform -rotate-3 z-10">
+                    <div class="font-mono text-xs font-black tracking-widest text-brb-black bg-white px-2 border-2 border-brb-black mb-1">DHAMAKA</div>
+                    <div class="font-display font-black text-4xl text-brb-black leading-none">25%<span class="text-xl align-top">*</span></div>
+                    <div class="font-sans font-bold text-sm text-white bg-brb-saffron px-2 border-2 border-brb-black mt-1 uppercase">OFF</div>
+                    <div class="font-mono text-[10px] text-white absolute -bottom-7 left-1/2 -translate-x-1/2 w-36 bg-brb-black p-1 border border-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-normal pointer-events-none">
+                        * Samvat 2082 offer (eat kaju katli first)
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 border-b-4 border-brb-black bg-brb-saffron py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center relative z-50">
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <!-- Logo with Diya Top -->
+                <div class="relative">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-6 h-8 flame-animated z-20">
+                        <svg viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 0 C8 15 2 24 6 34 C10 40 20 40 24 34 C28 24 22 15 15 0 Z" fill="#FFD700" stroke="#111" stroke-width="2"/>
+                            <path d="M15 10 C11 18 8 24 10 30 C12 34 18 34 20 30 C22 24 19 18 15 10 Z" fill="#FF1E42"/>
+                        </svg>
+                    </div>
+                    <div class="w-10 h-10 bg-brb-black text-white flex items-center justify-center font-display font-bold text-xl border-2 border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] group-hover:rotate-12 transition-transform">
+                        B
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-black text-2xl tracking-tighter italic text-white drop-shadow-[2px_2px_0px_#111]">BRB AGENCY</span>
+                    <span class="font-mono text-[9px] uppercase tracking-widest text-brb-gold font-bold -mt-1">DIWALI SPECIAL 🪔</span>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-8 font-sans font-bold text-lg uppercase tracking-wide items-center text-white">
+                <a href="#services" class="hover:underline decoration-4 decoration-brb-gold underline-offset-4 hover:-rotate-2 transition-transform">Our Patakhas</a>
+                <a href="#vibe" class="hover:underline decoration-4 decoration-brb-teal underline-offset-4 hover:rotate-2 transition-transform">The Vibe</a>
+                <button id="burst-cracker-btn" class="bg-brb-gold text-brb-black px-4 py-2 border-2 border-brb-black font-display font-bold text-sm shadow-hard hover:bg-white transition-all hover:-translate-y-1 active:translate-y-0 active:shadow-none flex items-center gap-2">
+                    <span>💥 BURST CRACKER</span>
+                </button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScJNbyHaZf9DG59UalQzUbstmm0kXreKZwP9aab9AiKmuB1RA/viewform" target="_blank" class="bg-brb-black text-white px-6 py-2 border-2 border-transparent hover:bg-white hover:text-brb-black hover:border-brb-black shadow-hard transition-all hover:-translate-y-1 active:translate-y-0 active:shadow-none">
+                    Let's Talk
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-btn" class="md:hidden p-2 border-2 border-brb-black bg-white shadow-hard active:translate-y-1 active:shadow-none" aria-label="Toggle navigation menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Dynamic Hanging Toran & Fairy Lights -->
+        <div class="toran-rope-container" id="toran-rope">
+            <!-- SVG Wire path injected by JS -->
+            <svg class="toran-wire" id="wire-svg">
+                <path id="wire-path" d="" />
+            </svg>
+            <!-- Bulbs injected dynamically -->
+        </div>
+
+        <!-- Hanging Diwali Ornaments (Akash Kandil, Clay Diyas, Chakri) -->
+        <!-- 1. Akash Kandil Left -->
+        <div class="ornament-string h-36 md:h-52 left-[8%]">
+            <div class="ornament">
+                <svg width="65" height="100" viewBox="0 0 65 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Top Hook -->
+                    <rect x="29" y="0" width="7" height="6" fill="#111"/>
+                    <!-- Kandil Diamond Center -->
+                    <polygon points="32.5,6 60,34 32.5,62 5,34" fill="#FFD700" stroke="#111" stroke-width="2.5"/>
+                    <polygon points="32.5,14 52,34 32.5,54 13,34" fill="#FF6200" stroke="#111" stroke-width="1.5"/>
+                    <circle cx="32.5" cy="34" r="8" fill="#D80082" stroke="#111" stroke-width="1.5"/>
+                    <circle cx="32.5" cy="34" r="3" fill="#FFFFFF"/>
+                    <!-- Hanging Colorful Ribbons / Tassels -->
+                    <path d="M14 62 L10 96" stroke="#FF6200" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M23 62 L20 100" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M32.5 62 L32.5 98" stroke="#D80082" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M42 62 L45 100" stroke="#00F0B5" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M51 62 L55 96" stroke="#FF6200" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- 2. Clay Diya Ornament -->
+        <div class="ornament-string h-28 md:h-40 left-[28%]">
+            <div class="ornament">
+                <svg width="55" height="65" viewBox="0 0 55 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Twine Hook -->
+                    <rect x="25" y="0" width="5" height="10" fill="#111"/>
+                    <!-- Diya Flame -->
+                    <g class="flame-animated">
+                        <path d="M27.5 10 C22 20 20 26 23 32 C25 36 30 36 32 32 C35 26 33 20 27.5 10 Z" fill="#FFD700" stroke="#111" stroke-width="1.5"/>
+                        <path d="M27.5 18 C25 24 24 28 25.5 31 C26.5 33 28.5 33 29.5 31 C31 28 30 24 27.5 18 Z" fill="#FF1E42"/>
+                    </g>
+                    <!-- Diya Clay Body -->
+                    <path d="M5 34 Q27.5 28 50 34 Q53 52 27.5 54 Q2 52 5 34 Z" fill="#FF6200" stroke="#111" stroke-width="2.5"/>
+                    <ellipse cx="27.5" cy="34" rx="22" ry="5" fill="#C44600" stroke="#111" stroke-width="1.5"/>
+                    <!-- Base -->
+                    <rect x="20" y="53" width="15" height="4" fill="#8B3400" stroke="#111" stroke-width="1.5"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- 3. Auspicious Star Kandil Middle -->
+        <div class="ornament-string h-40 md:h-56 left-[50%]">
+            <div class="ornament">
+                <svg width="70" height="105" viewBox="0 0 70 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="32" y="0" width="6" height="8" fill="#111"/>
+                    <!-- Star Shape -->
+                    <polygon points="35,8 43,26 63,26 47,38 53,58 35,46 17,58 23,38 7,26 27,26" fill="#FFD700" stroke="#111" stroke-width="2.5"/>
+                    <!-- Center Core -->
+                    <circle cx="35" cy="35" r="10" fill="#E60039" stroke="#111" stroke-width="2"/>
+                    <circle cx="35" cy="35" r="5" fill="#FFFFFF"/>
+                    <!-- Hanging Tassels -->
+                    <path d="M18 56 L15 95" stroke="#FF6200" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M26 53 L24 102" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M35 48 L35 105" stroke="#00F0B5" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M44 53 L46 102" stroke="#D80082" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M52 56 L55 95" stroke="#FF6200" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- 4. Rotating Chakri Charm -->
+        <div class="ornament-string h-28 md:h-40 left-[72%]">
+            <div class="ornament">
+                <svg width="55" height="65" viewBox="0 0 55 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="25" y="0" width="5" height="10" fill="#111"/>
+                    <g class="spin-slow" style="transform-origin: 27.5px 37.5px;">
+                        <circle cx="27.5" cy="37.5" r="22" fill="#00F0B5" stroke="#111" stroke-width="2.5"/>
+                        <!-- Spiral Segments -->
+                        <path d="M27.5 15.5 A22 22 0 0 1 49.5 37.5 L27.5 37.5 Z" fill="#FFD700"/>
+                        <path d="M27.5 59.5 A22 22 0 0 1 5.5 37.5 L27.5 37.5 Z" fill="#FF6200"/>
+                        <circle cx="27.5" cy="37.5" r="8" fill="#111"/>
+                        <circle cx="27.5" cy="37.5" r="3" fill="#FFF"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <!-- 5. Akash Kandil Right -->
+        <div class="ornament-string h-36 md:h-52 left-[90%]">
+            <div class="ornament">
+                <svg width="65" height="100" viewBox="0 0 65 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="29" y="0" width="7" height="6" fill="#111"/>
+                    <polygon points="32.5,6 60,34 32.5,62 5,34" fill="#00F0B5" stroke="#111" stroke-width="2.5"/>
+                    <polygon points="32.5,14 52,34 32.5,54 13,34" fill="#FFD700" stroke="#111" stroke-width="1.5"/>
+                    <circle cx="32.5" cy="34" r="8" fill="#FF6200" stroke="#111" stroke-width="1.5"/>
+                    <circle cx="32.5" cy="34" r="3" fill="#FFFFFF"/>
+                    <!-- Tassels -->
+                    <path d="M14 62 L10 96" stroke="#00F0B5" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M23 62 L20 100" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M32.5 62 L32.5 98" stroke="#FF6200" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M42 62 L45 100" stroke="#D80082" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M51 62 L55 96" stroke="#00F0B5" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brb-saffron z-[60] hidden flex-col items-center justify-center gap-8">
+        <button id="close-menu-btn" class="absolute top-6 right-6 p-2 border-2 border-brb-black bg-white shadow-hard" aria-label="Close menu">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <a href="#services" class="mobile-link font-display text-5xl font-black text-stroke text-white hover:text-brb-gold transition-colors">OUR PATAKHAS</a>
+        <a href="#vibe" class="mobile-link font-display text-5xl font-black text-stroke text-white hover:text-brb-gold transition-colors">THE VIBE</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScJNbyHaZf9DG59UalQzUbstmm0kXreKZwP9aab9AiKmuB1RA/viewform" target="_blank" class="mobile-link font-display text-5xl font-black text-stroke text-white hover:text-brb-gold transition-colors">CONTACT</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-40 pb-20 md:pt-56 md:pb-32 relative overflow-hidden bg-brb-cream">
+        <!-- Floating Neo-Brutalist Diya Left -->
+        <div class="absolute top-36 left-8 text-brb-saffron animate-float hidden lg:block transform -rotate-6">
+            <svg width="110" height="130" viewBox="0 0 110 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Large Dancing Flame -->
+                <g class="flame-animated">
+                    <path d="M55 5 C35 30 30 50 38 70 C44 82 66 82 72 70 C80 50 75 30 55 5 Z" fill="#FFD700" stroke="#111" stroke-width="3"/>
+                    <path d="M55 25 C45 40 42 55 48 68 C52 75 62 75 64 68 C68 55 65 40 55 25 Z" fill="#FF6200" stroke="#111" stroke-width="2"/>
+                    <circle cx="55" cy="62" r="5" fill="#FFFFFF"/>
+                </g>
+                <!-- Clay Bowl Base -->
+                <path d="M10 75 Q55 65 100 75 Q106 110 55 114 Q4 110 10 75 Z" fill="#FF6200" stroke="#111" stroke-width="4"/>
+                <ellipse cx="55" cy="75" rx="45" ry="10" fill="#E65100" stroke="#111" stroke-width="2.5"/>
+                <rect x="40" y="112" width="30" height="8" fill="#8B3400" stroke="#111" stroke-width="2"/>
+                <!-- Hard Shadow Box Graphic -->
+                <div class="absolute -bottom-2 right-0 bg-brb-black text-white text-[10px] font-mono px-1">100W</div>
+            </svg>
+        </div>
+
+        <!-- Floating Neo-Brutalist Rocket Right -->
+        <div class="absolute bottom-28 right-8 animate-float hidden lg:block transform rotate-12">
+            <svg width="120" height="160" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Rocket Cone -->
+                <polygon points="60,10 90,50 30,50" fill="#FFD700" stroke="#111" stroke-width="4"/>
+                <!-- Rocket Body -->
+                <rect x="30" y="50" width="60" height="70" fill="#E60039" stroke="#111" stroke-width="4"/>
+                <text x="60" y="92" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="20" text-anchor="middle" fill="#FFFFFF">100X</text>
+                <!-- Fins -->
+                <polygon points="30,90 10,120 30,120" fill="#00F0B5" stroke="#111" stroke-width="3"/>
+                <polygon points="90,90 110,120 90,120" fill="#00F0B5" stroke="#111" stroke-width="3"/>
+                <!-- Spark Trail / Exhaust -->
+                <g class="sparkle">
+                    <path d="M50 120 L45 145 L55 135 L60 155 L65 135 L75 145 L70 120 Z" fill="#FF9500" stroke="#111" stroke-width="2"/>
+                    <circle cx="60" cy="158" r="4" fill="#FFD700"/>
+                </g>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <!-- Festive Badge -->
+            <div class="inline-flex items-center gap-2 bg-brb-gold border-2 border-brb-black px-4 py-1.5 font-bold font-sans mb-6 shadow-hard transform -rotate-2 hover:rotate-0 transition-transform cursor-default text-brb-black">
+                <span>🪔</span>
+                <span class="tracking-wide">SHUBH DIWALI DHAMAKA SZN</span>
+                <span>💥</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="font-display font-black text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-8 uppercase text-brb-black">
+                Light Up The <span class="text-white bg-brb-black px-3 border-2 border-brb-black mx-1 transform rotate-2 inline-block shadow-hard">Algo</span><br />
+                Burst The<br />
+                <span class="relative inline-block mt-2 text-brb-black">
+                    Feed With Reach.
+                    <!-- Festive Wavy Underline -->
+                    <svg class="absolute -bottom-4 left-0 w-full text-brb-saffron" height="22" viewBox="0 0 100 22" fill="none" stroke="currentColor" stroke-width="4.5">
+                        <path d="M2 11 Q10 2 18 11 T34 11 T50 11 T66 11 T82 11 T98 11" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </h1>
+
+            <p class="font-sans text-xl md:text-2xl max-w-2xl mx-auto mb-12 font-medium border-l-8 border-brb-saffron pl-6 text-left md:text-center md:border-l-0 md:pl-0 bg-white md:bg-transparent p-4 md:p-0 shadow-hard md:shadow-none border-2 md:border-0 border-brb-black md:border-transparent text-brb-black">
+                Writing. Shooting. Posting. Lighting Up The Internet.<br class="hidden md:block" />
+                Give your brand the blessings of viral Lakshmi. While competitors snooze on holiday mode, we ignite 100x growth.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScJNbyHaZf9DG59UalQzUbstmm0kXreKZwP9aab9AiKmuB1RA/viewform" target="_blank" class="group relative inline-flex items-center justify-center bg-brb-black text-white font-display font-bold text-2xl px-10 py-4 border-4 border-brb-black shadow-hard-lg hover:bg-brb-saffron hover:text-white transition-all hover:-translate-y-2 hover:shadow-hard-xl">
+                    <span>IGNITE NOW</span>
+                    <i data-lucide="flame" class="ml-3 w-8 h-8 group-hover:rotate-12 transition-transform text-brb-gold"></i>
+                </a>
+
+                <button id="hero-celebrate-btn" class="group inline-flex items-center justify-center bg-brb-gold text-brb-black font-display font-bold text-2xl px-8 py-4 border-4 border-brb-black shadow-hard hover:bg-white transition-all hover:-translate-y-1 active:translate-y-0 active:shadow-none">
+                    <span>🪔 LIGHT A DIYA</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Festive Marquee -->
+    <div class="bg-brb-saffron border-y-4 border-brb-black py-4 overflow-hidden whitespace-nowrap relative">
+        <!-- Rangoli Dot Motif Overlay -->
+        <div class="absolute inset-0 opacity-15 bg-[repeating-linear-gradient(45deg,#FFD700,#FFD700_15px,transparent_15px,transparent_30px)]"></div>
+        <div class="inline-block animate-marquee font-display font-black text-3xl text-white tracking-wider relative z-10 drop-shadow-[2px_2px_0px_#111]">
+            💥 SHUBH DIWALI • 100X REACH • LIGHT UP THE FEED • NO PHUSS CRACKERS • ALL DHAMAKA • SHIP FAST • GO VIRAL • EAT KAJU KATLI • BURST THE CHARTS • SCALE TO THE MOON • 💥 SHUBH DIWALI • 100X REACH • LIGHT UP THE FEED • NO PHUSS CRACKERS • ALL DHAMAKA • SHIP FAST • GO VIRAL • EAT KAJU KATLI • BURST THE CHARTS •
+        </div>
+    </div>
+
+    <!-- Services Section ("The Patakha Stack") -->
+    <section id="services" class="py-20 bg-white doodle-pattern relative">
+        <div class="container mx-auto px-4">
+            <div class="flex items-end gap-4 mb-16">
+                <h2 class="font-display font-black text-5xl md:text-7xl uppercase relative inline-block bg-white border-4 border-brb-black px-6 py-2 shadow-hard transform -rotate-1 text-brb-black">
+                    Our Patakhas 💥
+                </h2>
+                <span class="font-mono text-sm font-bold bg-brb-gold px-3 py-1 border-2 border-brb-black shadow-hard hidden sm:inline-block">
+                    Zero Smoke • 100% Spark
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 px-2">
+                <!-- Card 1 -->
+                <div class="relative group border-4 border-brb-black p-6 shadow-hard transition-all duration-300 hover:shadow-hard-lg hover:scale-105 hover:-translate-y-2 bg-brb-gold -rotate-1 hover:rotate-2 z-0 hover:z-20">
+                    <div class="absolute -top-6 -right-6 bg-white border-4 border-brb-black p-3 rounded-full shadow-hard z-10 group-hover:rotate-12 transition-transform">
+                        <i data-lucide="zap" class="w-8 h-8 text-brb-black"></i>
+                    </div>
+                    <div class="font-mono text-xs font-black bg-brb-black text-white px-2 py-0.5 inline-block mb-3 border border-white">BOMB COPY</div>
+                    <h3 class="font-display font-bold text-3xl mb-4 uppercase tracking-tighter text-brb-black leading-none">Atom Bomb Copy 🧨</h3>
+                    <p class="font-sans font-medium text-lg leading-tight border-t-4 border-brb-black pt-4 text-brb-black">
+                        Scripts that ignite in 2 seconds flat. Twitter/X threads hotter than an atom bomb. Hooks that grab attention before the sparkler burns out.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="relative group border-4 border-brb-black p-6 shadow-hard transition-all duration-300 hover:shadow-hard-lg hover:scale-105 hover:-translate-y-2 bg-brb-teal rotate-2 hover:-rotate-2 z-0 hover:z-20">
+                    <div class="absolute -top-6 -right-6 bg-white border-4 border-brb-black p-3 rounded-full shadow-hard z-10 group-hover:rotate-12 transition-transform">
+                        <i data-lucide="video" class="w-8 h-8 text-brb-black"></i>
+                    </div>
+                    <div class="font-mono text-xs font-black bg-brb-black text-white px-2 py-0.5 inline-block mb-3 border border-white">4K CINEMA</div>
+                    <h3 class="font-display font-bold text-3xl mb-4 uppercase tracking-tighter text-brb-black leading-none">4K Golden Production 🎥</h3>
+                    <p class="font-sans font-medium text-lg leading-tight border-t-4 border-brb-black pt-4 text-brb-black">
+                        Visuals brighter than 1,000 diyas. High-energy edits, cinematic color grading, and thumbnails that pull clicks like Diwali gift boxes.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="relative group border-4 border-brb-black p-6 shadow-hard transition-all duration-300 hover:shadow-hard-lg hover:scale-105 hover:-translate-y-2 bg-brb-magenta -rotate-2 hover:rotate-2 z-0 hover:z-20 text-white">
+                    <div class="absolute -top-6 -right-6 bg-white border-4 border-brb-black p-3 rounded-full shadow-hard z-10 group-hover:rotate-12 transition-transform">
+                        <i data-lucide="rocket" class="w-8 h-8 text-brb-black"></i>
+                    </div>
+                    <div class="font-mono text-xs font-black bg-brb-black text-white px-2 py-0.5 inline-block mb-3 border border-white">VIRAL ORBIT</div>
+                    <h3 class="font-display font-bold text-3xl mb-4 uppercase tracking-tighter text-white leading-none">Sky-Shot Distribution 🚀</h3>
+                    <p class="font-sans font-medium text-lg leading-tight border-t-4 border-brb-black pt-4 text-white">
+                        We know the algorithms inside out. Perfect timing, community ignition, and organic seeding that launches your content to the top of every feed.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="relative group border-4 border-brb-black p-6 shadow-hard transition-all duration-300 hover:shadow-hard-lg hover:scale-105 hover:-translate-y-2 bg-brb-saffron rotate-1 hover:-rotate-2 z-0 hover:z-20 text-white">
+                    <div class="absolute -top-6 -right-6 bg-white border-4 border-brb-black p-3 rounded-full shadow-hard z-10 group-hover:rotate-12 transition-transform">
+                        <i data-lucide="code" class="w-8 h-8 text-brb-black"></i>
+                    </div>
+                    <div class="font-mono text-xs font-black bg-brb-black text-white px-2 py-0.5 inline-block mb-3 border border-white">SUPERCHARGED</div>
+                    <h3 class="font-display font-bold text-3xl mb-4 uppercase tracking-tighter text-white leading-none">Rocket-Fuel Tech ⚡</h3>
+                    <p class="font-sans font-medium text-lg leading-tight border-t-4 border-brb-black pt-4 text-white">
+                        Landing pages built at lightning speed. Custom viral web apps, interactive campaign tools, and clean code that never crashes under festive traffic.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Vibe Section -->
+    <section id="vibe" class="py-20 bg-brb-black text-white border-t-4 border-brb-black relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2">
+                    <div class="inline-block bg-brb-saffron text-white border-2 border-white px-3 py-1 font-mono text-xs font-bold mb-4 uppercase">
+                        PHILOSOPHY
+                    </div>
+                    <h2 class="font-display font-black text-5xl md:text-7xl mb-6 leading-tight">
+                        BUILT FOR THE <span class="text-brb-gold underline decoration-wavy decoration-4 underline-offset-8">100x</span> GENERATION
+                    </h2>
+                    <p class="font-sans text-xl mb-8 text-gray-300">
+                        Traditional agencies are like damp sparklers: lots of smoke, zero fire. They have meetings about meetings.
+                        We ship. We iterate. We win. Pure festive energy, unrelenting execution.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 font-bold text-lg">
+                            <div class="bg-brb-gold text-brb-black p-1.5 border-2 border-white shadow-[4px_4px_0px_0px_#ffffff]">
+                                <i data-lucide="sparkles" class="w-5 h-5"></i>
+                            </div>
+                            100% Spark, Zero Fluff.
+                        </div>
+                        <div class="flex items-center gap-4 font-bold text-lg">
+                            <div class="bg-brb-gold text-brb-black p-1.5 border-2 border-white shadow-[4px_4px_0px_0px_#ffffff]">
+                                <i data-lucide="cpu" class="w-5 h-5"></i>
+                            </div>
+                            AI-Integrated Workflows.
+                        </div>
+                        <div class="flex items-center gap-4 font-bold text-lg">
+                            <div class="bg-brb-gold text-brb-black p-1.5 border-2 border-white shadow-[4px_4px_0px_0px_#ffffff]">
+                                <i data-lucide="flame" class="w-5 h-5"></i>
+                            </div>
+                            Meme-Literate Culture Ignition.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Graph Graphic (Diwali Golden Stonks Edition) -->
+                <div class="w-full md:w-1/2 relative">
+                    <div class="bg-white p-8 border-4 border-brb-gold shadow-[12px_12px_0px_0px_#FFD700] text-brb-black transform rotate-2 hover:-rotate-1 transition-transform duration-300">
+                        <div class="flex justify-between items-center mb-4 border-b-2 border-gray-200 pb-2">
+                            <span class="font-mono text-xs font-bold uppercase text-gray-600">SAMVAT 2082 GROWTH INDEX</span>
+                            <span class="font-mono text-xs font-bold text-brb-saffron">LIVE METRICS 🪔</span>
+                        </div>
+                        <div class="flex justify-between items-end h-64 gap-4 pb-4 border-b-4 border-brb-black">
+                            <div class="w-full bg-brb-saffron border-2 border-brb-black relative hover:bg-brb-gold transition-colors" style="height: 45%"></div>
+                            <div class="w-full bg-brb-saffron border-2 border-brb-black relative hover:bg-brb-gold transition-colors" style="height: 60%"></div>
+                            <div class="w-full bg-brb-saffron border-2 border-brb-black relative hover:bg-brb-gold transition-colors" style="height: 55%"></div>
+                            <div class="w-full bg-brb-saffron border-2 border-brb-black relative hover:bg-brb-gold transition-colors" style="height: 80%"></div>
+                            <div class="w-full bg-brb-saffron border-2 border-brb-black relative hover:bg-brb-gold transition-colors" style="height: 72%"></div>
+                            <div class="w-full bg-brb-gold border-2 border-brb-black relative hover:bg-brb-saffron transition-colors" style="height: 96%">
+                                <div class="absolute -top-10 left-1/2 -translate-x-1/2 font-bold font-mono text-xs bg-brb-black text-white px-2 py-1 transform -rotate-6 whitespace-nowrap border border-white">
+                                    DHAMAKA 🚀
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center font-display font-black text-2xl mt-4 uppercase">
+                            Your Views & Reach (Auspicious Gains Only 📈)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-32 bg-brb-saffron border-t-4 border-brb-black relative overflow-hidden">
+        <!-- Festive Overlay -->
+        <div class="absolute inset-0 opacity-20" style="background-image: url('https://www.transparenttextures.com/patterns/diagmonds-light.png');"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div class="inline-block bg-brb-black text-brb-gold border-2 border-white px-4 py-1 font-mono text-sm font-bold mb-6 shadow-hard uppercase">
+                LIMITED FESTIVE SLOTS
+            </div>
+            <h2 class="font-display font-black text-6xl md:text-8xl mb-8 text-white drop-shadow-[4px_4px_0px_#111] uppercase">
+                Ready For The Dhamaka?
+            </h2>
+            <p class="font-sans text-2xl font-bold mb-12 max-w-2xl mx-auto text-white drop-shadow-[1px_1px_0px_#111]">
+                Stop overthinking. Light the fuse. Fill out the form and let's craft a campaign that outshines everyone this Diwali.
+            </p>
+            
+            <div class="bg-white border-4 border-brb-black p-8 max-w-md mx-auto shadow-hard-xl rotate-1 hover:rotate-0 transition-transform">
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-center gap-3 border-b-2 border-gray-200 pb-4 mb-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500 border border-black"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500 border border-black"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500 border border-black"></div>
+                        <span class="ml-auto font-mono text-xs text-gray-500">shubh_aarambh.exe</span>
+                    </div>
+                    <p class="text-left font-sans text-lg mb-4 text-brb-black">
+                        Tell us about your brand. We usually reply within 24 hours unless our notifications crashed the server.
+                    </p>
+                    <a 
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScJNbyHaZf9DG59UalQzUbstmm0kXreKZwP9aab9AiKmuB1RA/viewform" 
+                        target="_blank" 
+                        class="flex items-center justify-center gap-2 bg-brb-gold text-brb-black border-4 border-brb-black font-display font-black text-xl py-4 shadow-hard hover:bg-brb-black hover:text-white hover:shadow-hard-reverse hover:translate-y-1 transition-all active:shadow-none active:translate-y-1"
+                    >
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        CLAIM DIWALI DEAL
+                    </a>
+                    <div class="text-xs font-mono text-gray-500 mt-2 flex items-center justify-center gap-1">
+                        <i data-lucide="mouse-pointer-2" class="w-3 h-3"></i>
+                        <span>Powered by Google Forms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brb-black text-white py-12 border-t-4 border-white">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="font-display font-bold text-3xl tracking-tighter italic">
+                    BRB.
+                </div>
+                <span class="font-mono text-xs bg-brb-saffron px-2 py-0.5 border border-white text-white">DIWALI '26</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-6 font-mono text-sm text-center">
+                <span>© <span id="year"></span> BRB Agency. Shubh Deepavali! 🪔</span>
+                <span class="hidden md:inline text-gray-600">|</span>
+                <span>Made with ☕, 🪔, 🍬 and 0% React</span>
+            </div>
+
+            <div class="flex gap-4">
+                <div title="Saffron" class="w-8 h-8 bg-brb-saffron border-2 border-white rounded-full hover:scale-125 transition-transform cursor-pointer"></div>
+                <div title="Gold" class="w-8 h-8 bg-brb-gold border-2 border-white rounded-full hover:scale-125 transition-transform cursor-pointer"></div>
+                <div title="Magenta" class="w-8 h-8 bg-brb-magenta border-2 border-white rounded-full hover:scale-125 transition-transform cursor-pointer"></div>
+                <div title="Peacock Teal" class="w-8 h-8 bg-brb-teal border-2 border-white rounded-full hover:scale-125 transition-transform cursor-pointer"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 2. Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 3. Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.remove('py-4', 'bg-brb-saffron');
+                navbar.classList.add('py-2', 'bg-white');
+            } else {
+                navbar.classList.add('py-4', 'bg-brb-saffron');
+                navbar.classList.remove('py-2', 'bg-white');
+            }
+        });
+
+        // 4. Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // ============================================
+        // 5. DIWALI MUSIC LOGIC
+        // ============================================
+        const audio = document.getElementById('diwali-music');
+        const musicBtn = document.getElementById('music-toggle');
+        const musicIcon = document.getElementById('music-icon');
+        let isMusicToggling = false;
+
+        async function toggleMusic() {
+            if (isMusicToggling) return;
+            isMusicToggling = true;
+
+            try {
+                if (audio.paused) {
+                    await audio.play();
+                    // Change to Pause icon
+                    musicIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
+                    musicBtn.classList.remove('bg-brb-gold');
+                    musicBtn.classList.add('bg-brb-saffron', 'text-white');
+                } else {
+                    audio.pause();
+                    // Change to Play icon
+                    musicIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+                    musicBtn.classList.add('bg-brb-gold');
+                    musicBtn.classList.remove('bg-brb-saffron', 'text-white');
+                }
+            } catch (err) {
+                console.warn("Audio toggle error or autoplay blocked:", err);
+                musicIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+                musicBtn.classList.add('bg-brb-gold');
+                musicBtn.classList.remove('bg-brb-saffron', 'text-white');
+            } finally {
+                isMusicToggling = false;
+            }
+        }
+
+        musicBtn.addEventListener('click', toggleMusic);
+
+        // Auto-play on first user interaction
+        const playOnFirstInteraction = async () => {
+            if (isMusicToggling) return;
+            isMusicToggling = true;
+            try {
+                await audio.play();
+                musicIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
+                musicBtn.classList.remove('bg-brb-gold');
+                musicBtn.classList.add('bg-brb-saffron', 'text-white');
+                document.body.removeEventListener('click', playOnFirstInteraction);
+                document.body.removeEventListener('keydown', playOnFirstInteraction);
+            } catch (err) {
+                // Wait for manual button click
+            } finally {
+                isMusicToggling = false;
+            }
+        };
+
+        document.body.addEventListener('click', playOnFirstInteraction, { once: true });
+        document.body.addEventListener('keydown', playOnFirstInteraction, { once: true });
+
+        // ============================================
+        // 6. TORAN & FAIRY LIGHTS ROPE LOGIC
+        // ============================================
+        const toranContainer = document.getElementById('toran-rope');
+        const wirePath = document.getElementById('wire-path');
+        const lightColors = ['saffron', 'gold', 'magenta', 'teal'];
+        const LIGHT_COUNT = 32;
+
+        function updateToranLights() {
+            const width = window.innerWidth;
+            const height = 55; // Curve depth
+
+            // Quadratic Bezier: M 0 0 Q width/2 height*2 width 0
+            const d = `M 0 0 Q ${width / 2} ${height * 2} ${width} 0`;
+            wirePath.setAttribute('d', d);
+
+            const existingBulbs = document.querySelectorAll('.diya-light');
+            existingBulbs.forEach(b => b.remove());
+
+            for (let i = 1; i < LIGHT_COUNT; i++) {
+                const percent = i / LIGHT_COUNT;
+                const x = width * percent;
+                const t = percent;
+                const y = 4 * t * (1 - t) * height;
+
+                const bulb = document.createElement('div');
+                bulb.classList.add('diya-light', lightColors[i % lightColors.length]);
+                bulb.style.left = `${x}px`;
+                bulb.style.top = `${y}px`;
+                bulb.style.animationDelay = `-${(i * 0.35) % 2.5}s`;
+
+                toranContainer.appendChild(bulb);
+            }
+        }
+
+        window.addEventListener('resize', updateToranLights);
+        updateToranLights();
+
+        // ============================================
+        // 7. INTERACTIVE DIWALI FIREWORKS & SPARKLER CANVAS
+        // ============================================
+        const canvas = document.getElementById('diwali-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        let ambientSparks = [];
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Web Audio Synthesized Festive Cracker Pop
+        let audioCtx = null;
+        function playPopSound() {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                // Random festive sound frequency (high sparkle or pop)
+                const freq = 300 + Math.random() * 600;
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.15);
+
+                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.16);
+            } catch (e) {
+                // Ignore if audio permissions not yet granted
+            }
+        }
+
+        // Particle Class for Cracker Bursts & Sparklers
+        class Particle {
+            constructor(x, y, color, speed = null, angle = null) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                const a = angle !== null ? angle : Math.random() * Math.PI * 2;
+                const s = speed !== null ? speed : Math.random() * 6 + 2;
+                this.vx = Math.cos(a) * s;
+                this.vy = Math.sin(a) * s;
+                this.friction = 0.94;
+                this.gravity = 0.18;
+                this.alpha = 1;
+                this.decay = Math.random() * 0.02 + 0.015;
+                this.size = Math.random() * 4 + 3;
+                this.isStar = Math.random() > 0.5;
+            }
+
+            update() {
+                this.vx *= this.friction;
+                this.vy *= this.friction;
+                this.vy += this.gravity;
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= this.decay;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.alpha);
+                ctx.fillStyle = this.color;
+                ctx.strokeStyle = '#111111';
+                ctx.lineWidth = 1.5;
+
+                ctx.beginPath();
+                if (this.isStar) {
+                    // Draw a mini diamond / star particle
+                    ctx.rect(this.x - this.size / 2, this.y - this.size / 2, this.size, this.size);
+                } else {
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                }
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        // Ambient Upward Floating Golden Sparks
+        class AmbientSpark {
+            constructor() {
+                this.reset(true);
+            }
+
+            reset(initial = false) {
+                this.x = Math.random() * width;
+                this.y = initial ? Math.random() * height : height + 10;
+                this.size = Math.random() * 3 + 2;
+                this.vy = -(Math.random() * 1.4 + 0.6); // Float upward
+                this.angle = Math.random() * Math.PI * 2;
+                this.swaySpeed = Math.random() * 0.03 + 0.01;
+                this.swayRange = Math.random() * 1.5 + 0.5;
+                const colors = ['#FFD700', '#FF6200', '#FFAE00', '#FFFFFF', '#00F0B5'];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.alpha = Math.random() * 0.6 + 0.4;
+            }
+
+            update() {
+                this.y += this.vy;
+                this.angle += this.swaySpeed;
+                this.x += Math.sin(this.angle) * this.swayRange;
+
+                if (this.y < -20) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+                ctx.strokeStyle = '#111111';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        // Initialize Ambient Sparks
+        const ambientCount = window.innerWidth < 768 ? 30 : 65;
+        for (let i = 0; i < ambientCount; i++) {
+            ambientSparks.push(new AmbientSpark());
+        }
+
+        // Launch Cracker Explosion
+        function createFirework(x, y) {
+            playPopSound();
+            const colors = ['#FFD700', '#FF6200', '#E60039', '#D80082', '#00F0B5', '#FFFFFF'];
+            const chosenColor = colors[Math.floor(Math.random() * colors.length)];
+            const count = window.innerWidth < 768 ? 40 : 70;
+
+            for (let i = 0; i < count; i++) {
+                const angle = (Math.PI * 2 / count) * i + (Math.random() * 0.2);
+                const speed = Math.random() * 8 + 3;
+                const particleColor = Math.random() > 0.3 ? chosenColor : '#FFD700';
+                particles.push(new Particle(x, y, particleColor, speed, angle));
+            }
+        }
+
+        // Interactive Mouse Trail (Phooljhadi / Sparkler)
+        let lastSparkTime = 0;
+        window.addEventListener('mousemove', (e) => {
+            const now = Date.now();
+            if (now - lastSparkTime > 40) { // Limit spark generation rate
+                lastSparkTime = now;
+                const colors = ['#FFD700', '#FF9500', '#FFFFFF', '#00F0B5'];
+                const col = colors[Math.floor(Math.random() * colors.length)];
+                particles.push(new Particle(e.clientX, e.clientY, col, Math.random() * 2 + 1));
+            }
+        });
+
+        // Click to Burst Fireworks Anywhere
+        window.addEventListener('click', (e) => {
+            // Ignore if clicking on button or link to keep navigation crisp
+            if (e.target.closest('a') || e.target.closest('button')) return;
+            createFirework(e.clientX, e.clientY);
+        });
+
+        // "BURST CRACKER" and "LIGHT A DIYA" Button Triggers
+        const burstBtn = document.getElementById('burst-cracker-btn');
+        if (burstBtn) {
+            burstBtn.addEventListener('click', (e) => {
+                const rect = burstBtn.getBoundingClientRect();
+                createFirework(rect.left + rect.width / 2, rect.top + rect.height / 2);
+                // Also create secondary random bursts
+                setTimeout(() => createFirework(window.innerWidth * 0.3, window.innerHeight * 0.4), 150);
+                setTimeout(() => createFirework(window.innerWidth * 0.7, window.innerHeight * 0.35), 300);
+            });
+        }
+
+        const heroCelebrateBtn = document.getElementById('hero-celebrate-btn');
+        if (heroCelebrateBtn) {
+            heroCelebrateBtn.addEventListener('click', () => {
+                const rect = heroCelebrateBtn.getBoundingClientRect();
+                createFirework(rect.left + rect.width / 2, rect.top);
+                setTimeout(() => createFirework(window.innerWidth * 0.25, window.innerHeight * 0.3), 180);
+                setTimeout(() => createFirework(window.innerWidth * 0.75, window.innerHeight * 0.28), 350);
+            });
+        }
+
+        // Main Animation Loop
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            // 1. Draw Ambient Sparks
+            ambientSparks.forEach(s => {
+                s.update();
+                s.draw();
+            });
+
+            // 2. Draw Fireworks / Sparkler Particles
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.update();
+                p.draw();
+                if (p.alpha <= 0) {
+                    particles.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
+
